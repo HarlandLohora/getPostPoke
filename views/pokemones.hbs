@@ -1,0 +1,62 @@
+<style>
+    section{
+        display: flex;
+        width: 100vw;
+        background-color: white;
+    }
+    img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    div{
+        text-align: center;
+    }
+
+    form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+    }
+
+    input{
+        font-size: 2rem;
+    }
+
+    button{
+        background-color: dodgerblue;
+        border-radius: 15px;
+        font-size: 2rem;
+        padding: 10px 5px;
+    }
+</style>
+
+<h1>Pokemones</h1>
+
+<form action="/pokemon/filtrados">
+    <input type="text" placeholder="Buscar por nombre..." name="name"/>
+    <button type="submit">Buscar...</button>
+</form>
+
+
+<section>
+    {{#each POKEMONES}}
+        <a href="/pokemones/{{name}}">
+            <div>
+                <img src={{url}} alt="">
+                <h3>{{name}}</h3>
+                <p>{{type}}</p>
+            </div>
+        </a>
+    {{/each}}
+
+</section>
+
+<a href="/nuevo-pokemon">
+    <button>Crear pokemon</button>
+</a>
